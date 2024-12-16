@@ -1,0 +1,7 @@
+python==3.10.13
+pandas==2.2.3
+numpy==2.2.0
+matplotlib==3.10.0
+streamlit==1.41.1
+sqlalchemy==2.0.36
+mplfinance==0.12.10b0
