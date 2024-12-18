@@ -143,6 +143,10 @@ class StockDataVisualizer:
                 elif self.tipo_grafico == "Gráfico de Velas":
                     self.plot_candlestick()
 
+                # Opcion para ver el dataframe usado p construir el grafico.
+                with st.expander("Ver DataFrame usado para generar el gráfico"):
+                    st.dataframe(self.df)  # Display the dataframe
+
             else:
                 st.warning(
                     f"No hay datos almacenados para el ticker '{self.ticker_selecc}'.")
