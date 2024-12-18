@@ -149,6 +149,6 @@ class StockDataVisualizer:
 
 
 # Crea una instancia del Visualizador y llama al metodo correspondiente
-db_path = 'sqlite:////Users/requeto/Desktop/appPythonITBA/proyectoPythonITBA/finanzas_P.db'
+db_path = 'sqlite:///finanzas_P.db'
 visualizer = StockDataVisualizer(db_path)
 visualizer.display()
