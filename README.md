@@ -82,7 +82,7 @@ pip install -r requirements.txt
 ```
 
 ### 4. Configuración de Visual Studio Code
-- Abre Visual Studio Code desde la terminal de conda con:
+- Abre Visual Studio Code desde la terminal de Miniconda con:
 ```bash
 code .
 ```
