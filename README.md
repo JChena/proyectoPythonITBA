@@ -1,6 +1,6 @@
-# Trabajo práctico final - Python - ITBA 2024
+# <div style="text-align: center"> Trabajo práctico final - Python - ITBA 2024 </div>
 
-## Data Shares: Captura, Actualización y Visualización de Datos Financieros con Streamlit.
+## <div style="text-align: center">Data Shares: Captura, Actualización y Visualización de Datos Financieros con Streamlit. </div>
 
 Data Shares es una aplicación desarrollada en Python que facilita la gestión y análisis de datos financieros provenientes de una API externa.
 
@@ -54,7 +54,7 @@ Proyecto/
 
 #### 3.1⁠ ⁠Clonar el repositorio:
 
-```py
+```python
 git clone https://github.com/JChena/proyectoPythonITBA.git
 ```
 
@@ -64,7 +64,7 @@ git clone https://github.com/JChena/proyectoPythonITBA.git
 
 > ⁠Instalar las dependencias necesarias:
 
-```py
+```python
 conda create -n <env>
 conda activate <env>
 conda install python==3.10.13
@@ -75,7 +75,7 @@ pip install -r requirements.txt
 
 #### 3.3 Una vez instaladas las dependencias, la aplicación se lanza en un navegador mediante el siguiente comando:
 
-```py
+```python
 streamlit run src/main.py
 ```
 
@@ -143,6 +143,8 @@ El gestor de base de datos utilizado es **SQLite**, que interactúa con el archi
 | `transactions` | `INTEGER`    | Número de transacciones realizadas en el día.                                           |
 
 ---
+
+<br>
 
 **maestra_tickers**: tabla de referencia para validar los tickers.
 
