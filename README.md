@@ -86,7 +86,9 @@ Asegúrate de que el entorno creado en el paso 3 esté activo en Visual Studio C
 ### 5. Ejecución de los Scripts
 5.1. Corre el script base.py. Esto creará una base de datos llamada finanzas.db en tu carpeta de trabajo.
 5.2. Corre el script menu.py para navegar por las opciones disponibles en el proyecto.
+
 ---
+
 ## Código
 
 El script está escrito utilizando la programación orientada a objetos. Las clases son:
