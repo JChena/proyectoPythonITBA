@@ -72,9 +72,15 @@ conda install python==3.10.13
 pip install -r requirements.txt
 ```
 
-> ⁠Asegurarse de que el archivo finanzas_P.db esté presente en la raíz del proyecto.
+#### 3.3⁠ Ubicarse el la rama 'version_streamlit' del repositorio
 
-#### 3.3 Una vez instaladas las dependencias, la aplicación se lanza en un navegador mediante el siguiente comando:
+```python
+git checkout version_streamlit
+```
+
+> ⁠Asegurarse de que el archivo finanzas_P.db esté presente en la raíz del proyecto mediante el comando ls o dir.
+
+#### 3.4 Una vez instaladas las dependencias, la aplicación se lanza en un navegador mediante el siguiente comando:
 
 ```python
 streamlit run src/main.py
