@@ -165,7 +165,7 @@ El gestor de base de datos utilizado es **SQLite**, que interactúa con un archi
 | Columna       | Tipo de Dato | Descripción                                                                 | Clave   |
 |---------------|--------------|-----------------------------------------------------------------------------|---------|
 | `id`          | `INTEGER`    | Identificador autoincremental único de cada registro. Es la clave primaria de la tabla.      | PK      |
-| `ticker`      | `TEXT`       | Símbolo bursátil del activo (Ej. AAPL, TSLA). Referencia a la tabla `maestra_tickers`. | FK      |
+| `ticker`      | `TEXT`       | Símbolo bursátil del activo (Ej. AAPL, TSLA). Referencia a la tabla `maestra_tickers`. |         |
 | `date`        | `DATE`       | Fecha del registro, formato `YYYY-MM-DD`.                                   |         |
 | `volume`      | `REAL`       | Volumen de transacciones del activo en el día especificado.                 |         |
 | `vwap`        | `REAL`       | Promedio ponderado por volumen (VWAP) del día.                              |         |
