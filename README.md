@@ -71,7 +71,7 @@ conda create --name <nombre_del_entorno>
 ```bash
 conda activate <nombre_del_entorno> 
 ```
-3.3. **Instala Python usando Miniconda** 
+3.3. **Instala Python 3.10.13** 
 
 ```bash
 conda install python==3.10.13
