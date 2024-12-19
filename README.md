@@ -9,7 +9,7 @@ Esta versión del proyecto es un sistema desarrollado en Python que facilita la 
 2. [Integrantes](#integrantes)
 3. [Estructura del Repositorio](#estructura-del-repositorio)
 4. [Instalación y Configuración del Proyecto](#instalación-y-configuración-del-proyecto)
-5. [Código del Menú](#código-del-menú)
+5. [Código del Menú](código-del-menú)
 6. [Detalle del Query Map](#detalle-del-query-map)
 7. [Base de Datos](#base-de-datos)
 
@@ -83,9 +83,11 @@ code .
 ```
 Asegúrate de que el entorno creado en el paso 3 esté activo en Visual Studio Code. Para verificar, selecciona el intérprete de Python correcto en la esquina inferior izquierda.
 
-### 5. Ejecución de los Scripts
-5.1. Corre el script base.py. Esto creará una base de datos llamada finanzas.db en tu carpeta de trabajo.
-5.2. Corre el script menu.py para navegar por las opciones disponibles en el proyecto.
+### 5. Orden de Ejecución de los Scripts
+
+5.1. Corre el script `datos_BD`. Esto creará una base de datos llamada `finanzas.db` en tu carpeta de trabajo.
+
+5.2. Corre el script `version_consola.py`. Esto navegará por el proyecto.
 
 ---
 
