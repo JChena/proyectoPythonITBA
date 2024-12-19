@@ -180,12 +180,6 @@ El gestor de base de datos utilizado es **SQLite**, que interactúa con un archi
 | `low`         | `REAL`       | Precio mínimo alcanzado por el activo en el día especificado.               |         |
 | `transactions`| `INTEGER`    | Número de transacciones realizadas en el día.                               |         |
 
-- Clave primaria (`PRIMARY KEY`):
-  - La columna `id` es la clave primaria, lo que asegura que cada registro tenga un identificador único.
-
-- Clave foránea (`FOREIGN KEY`):
-  - La columna `ticker` es una clave foránea que hace referencia a la columna `ticker` de la tabla `maestra_tickers`, garantizando que solo se puedan insertar tickers válidos que existan en la tabla `maestra_tickers`.
-
 - **maestra_tickers**: Una tabla de referencia para validar los tickers.
 
 | Columna         | Tipo de Dato | Descripción                                                        | Clave   |
