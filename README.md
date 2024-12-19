@@ -1,6 +1,6 @@
-# <div style="text-align: center"> Trabajo práctico final - Python - ITBA 2024 </div>
+# <div style="text-align: center"> Trabajo Práctico Final - Python - ITBA 2024 </div>
 
-## <div style="text-align: center">Data Shares: Captura, Actualización y Visualización de Datos Financieros con Streamlit. </div>
+![Banner](/static/data_shares_banner.png)
 
 Data Shares es una aplicación desarrollada en Python que facilita la gestión y análisis de datos financieros provenientes de una API externa.
 
