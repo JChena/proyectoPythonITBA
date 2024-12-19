@@ -4,4 +4,3 @@ prettytable==3.5.0
 mplfinance==0.12.10b0
 pandas==2.2.3
 numpy==2.2.0
-
