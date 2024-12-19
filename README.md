@@ -40,7 +40,7 @@ El repositorio está alojado en GitHub y consta de dos ramas (version_consola y 
 - Una carpeta **`scripts`**, que incluye los siguientes archivos:
   - `crear_BD.py`
   - `version_consola.py`
-  - `company_tickers.json` (necasario para correr datos_BD)
+- Un archivo `company_tickers.json` (necasario para correr datos_BD)
 - Un archivo `README.md` que contiene la descripción del proyecto en version_consola.
 - Un archivo `requirements.txt` que detalla las dependencias necesarias para ejecutar el proyecto.
 ---
