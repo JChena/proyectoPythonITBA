@@ -1,4 +1,5 @@
 from datetime import datetime, timedelta
+import json
 import sqlite3
 import requests
 import pandas as pd
@@ -7,13 +8,76 @@ import streamlit as st
 
 
 class DatabaseHandler:
-    def __init__(self, db_path):
-        """Inicializa con la ruta a la BD."""
+    def __init__(self, db_path, json_file=None):
+        """Inicializa con la ruta a la BD y crea las tablas si no existen. Si se provee un archivo JSON, carga los tickers."""
         self.db_path = db_path
+        self.json_file = json_file
+        self.create_tables()
+        if self.json_file:
+            self.llenar_maestra_tickers()
 
     def _connect(self):
         """Establece una conexion con la BD."""
         return sqlite3.connect(self.db_path)
+
+    def create_tables(self):
+        """Crea las tablas necesarias en la base de datos si no existen."""
+        conexion = self._connect()
+        cursor = conexion.cursor()
+
+        # Crear tabla 'financial_data_polygon' si no existe
+        cursor.execute('''
+        CREATE TABLE IF NOT EXISTS financial_data_polygon (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            ticker TEXT NOT NULL,
+            date TEXT NOT NULL,
+            volume INTEGER,
+            vwap REAL,
+            open REAL,
+            close REAL,
+            high REAL,
+            low REAL,
+            transactions INTEGER,
+            UNIQUE(ticker, date) -- evita duplicados
+        )
+        ''')
+
+        # Crear tabla 'maestra_tickers' si no existe
+        cursor.execute('''
+        CREATE TABLE IF NOT EXISTS maestra_tickers (
+            ticker TEXT PRIMARY KEY,
+            nombre_compania TEXT
+        )
+        ''')
+
+        conexion.commit()
+        conexion.close()
+
+    def llenar_maestra_tickers(self):
+        """Llena la tabla 'maestra_tickers' con los datos de un archivo JSON."""
+        if not self.json_file:
+            return
+
+        # Abre y carga el archivo JSON
+        with open(self.json_file, "r", encoding="utf-8") as archivo:
+            datos = json.load(archivo)
+
+        registros = [(valor["ticker"], valor["title"])
+                     for valor in datos.values()]
+
+        # Conexión a la base de datos
+        conexion = self._connect()
+        cursor = conexion.cursor()
+
+        # Inserta los datos en la tabla maestra de tickers
+        cursor.executemany("""
+        INSERT OR IGNORE INTO maestra_tickers (ticker, nombre_compania)
+        VALUES (?, ?)
+        """, registros)
+
+        # Confirmar cambios y cerrar conexión
+        conexion.commit()
+        conexion.close()
 
     def guardar_datos(self, ticker, resultados):
         """Almacena los datos obtenidos en la BD si es que los datos no existen. Si los datos existen no los pisa."""
@@ -114,7 +178,9 @@ st.write("Para actualizar tickers, ingresa los siguientes datos: ")
 # Inicializa objetos DataHandler y API Client
 db_path = "finanzas_P.db"
 api_key = "7EuDFFydcjhpG3G0JaoJmBUgpNDOZnp8"
-db_handler = DatabaseHandler(db_path)
+json_file = "src/company_tickers.json"  # Path to your JSON file
+
+db_handler = DatabaseHandler(db_path, json_file)
 api_client = APIClient(api_key)
 
 # Inicializa el objeto DataUpdater
