@@ -38,7 +38,7 @@ El repositorio está alojado en GitHub y consta de dos ramas (version_consola y 
 
 ### Contenido version_consola
 - Una carpeta **`scripts`**, que incluye los siguientes archivos:
-  - `datos_BD.py`
+  - `crear_BD.py`
   - `version_consola.py`
   - `company_tickers.json` (necasario para correr datos_BD)
 - Un archivo `README.md` que contiene la descripción del proyecto en version_consola.
@@ -85,7 +85,7 @@ Asegúrate de que el entorno creado en el paso 3 esté activo en Visual Studio C
 
 ### 5. Orden de Ejecución de los Scripts
 
-5.1. Corre el script `datos_BD`. Esto creará una base de datos llamada `finanzas.db` en tu carpeta de trabajo.
+5.1. Corre el script `crear_BD`. Esto creará una base de datos llamada `finanzas.db` en tu carpeta de trabajo.
 
 5.2. Corre el script `version_consola.py`. Esto navegará por el proyecto.
 
