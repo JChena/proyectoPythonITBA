@@ -6,23 +6,23 @@ Data Shares es una aplicación desarrollada en Python que facilita la gestión y
 
 ## Tabla de contenidos
 
-1. Descripción del proyecto
-2. Estructura del proyecto
-3. Instalación y ejecución del proyecto
-4. Uso de la aplicación
-5. Base de datos
-6. Tecnologías utilizadas
-7. Autores
+1. [Descripción del proyecto](#1-descripción-del-proyecto)
+2. [Estructura del proyecto](#2-estructura-del-proyecto)
+3. [Instalación y ejecución del proyecto](#3-instalación-y-ejecución-del-proyecto)
+4. [Uso de la aplicación](#4-uso-de-la-aplicación)
+5. [Base de datos](#5-base-de-datos)
+6. [Tecnologías utilizadas](#6-tecnologías-utilizadas)
+7. [Autores](#7-autores)
 
 ---
 
 ### 1. Descripción del proyecto
 
-Este proyecto es una aplicación web interactiva desarrollada con _Python_ y _Streamlit_, diseñada para la gestión, visualización y análisis de datos financieros. La aplicación permite actualizar datos desde la API de Polygon.io, visualizarlos en formato tabular y generar gráficos para analizar tendencias y comportamientos de precios y volúmenes.
+Este proyecto es una aplicación web interactiva desarrollada con _Python_ y _Streamlit_, diseñada para la gestión, visualización y análisis de datos financieros. La aplicación permite actualizar datos desde la API de [Polygon.io](https://polygon.io/), visualizarlos en formato tabular y generar gráficos para analizar tendencias y comportamientos de precios y volúmenes.
 
 #### Características
 
-- ⁠*Actualización de Datos:* Actualiza datos financieros desde la API de Polygon.io.
+- ⁠*Actualización de Datos:* Actualiza datos financieros desde la API de [Polygon.io](https://polygon.io/).
 
 - ⁠*Visualización Tabular:* Guarda estos datos en un archivo de base de datos y permite la consulta de los mismos a través de un resumen.
 
@@ -52,15 +52,15 @@ Proyecto/
 
 ### 3. Instalación y ejecución del proyecto
 
-#### I.⁠ ⁠Clonar el repositorio:
+#### 3.1⁠ ⁠Clonar el repositorio:
 
 ```py
 git clone https://github.com/JChena/proyectoPythonITBA.git
 ```
 
-#### II.⁠ Crear un entorno virtual de trabajo para administrar las dependencias.
+#### 3.2⁠ Crear un entorno virtual de trabajo para administrar las dependencias.
 
-> Recomendamos utilizar _Mini_ Conda para la instalación de Python, y _pip_ para la instalación del resto de los módulos.
+> Recomendamos utilizar _Mini Conda_ para la instalación de Python, y _pip_ para la instalación del resto de los módulos.
 
 > ⁠Instalar las dependencias necesarias:
 
@@ -71,47 +71,39 @@ conda install python==3.10.13
 pip install -r requirements.txt
 ```
 
-⁠Las siguientes bibliotecas deben estar instaladas:
-
-- streamlit ⁠
-- pandas ⁠
-- ⁠sqlalchemy ⁠
-- ⁠matplotlib ⁠
-- ⁠mplfinance ⁠
-- ⁠requests ⁠
-- json
-- datetime
-
 > ⁠Asegurarse de que el archivo finanzas_P.db esté presente en la raíz del proyecto.
 
-#### III. Una vez instaladas las dependencias, la aplicación se lanza en un navegador mediante el siguiente comando:
+#### 3.3 Una vez instaladas las dependencias, la aplicación se lanza en un navegador mediante el siguiente comando:
 
 ```py
 streamlit run src/main.py
 ```
 
-⁠-----
+---
 
 ### 4. Uso de la aplicación.
 
 #### Requisitos de uso: generación de Clave para Uso de la API
 
 - **Clave API**: Para usar la API de Polygon, necesitarás una API Key personalizada.
+
+  > A fin de probar la aplicación, ésta tiene al momento, una API Key incorporada en el código que será reemplazada, luego de la correción del proyecto, por una variable en la que futuros usuarios puedan almacenar su API Key personal.
+
   Sigue estos pasos para obtener la tuya:
 
-  1.1. **Regístrate en Polygon.io**: Ve a [Polygon.io](https://polygon.io/) y crea una cuenta.
+  4.1. **Regístrate en Polygon.io**: Ve a [Polygon.io](https://polygon.io/) y crea una cuenta.
 
-  1.2. **Genera tu API Key**: Una vez que hayas iniciado sesión, dirígete a la sección de API Keys en tu cuenta y genera una nueva clave.
+  4.2. **Genera tu API Key**: Una vez que hayas iniciado sesión, dirígete a la sección de API Keys en tu cuenta y genera una nueva clave.
 
-  1.3. **Actualiza el código**: Sustituye la línea `API_KEY = "TU_API_KEY_AQUI"` en el archivo ppal.py reemplazando el valor de la variable api_key.
+  4.3. **Actualiza el código**: Sustituye la línea `API_KEY = "TU_API_KEY_AQUI"` en el archivo ppal.py reemplazando el valor de la variable api_key.
 
 #### Opciones de Uso
 
 1.⁠ ⁠*Navegar por las diferentes páginas:*
 
-    - _Actualizar Datos:_ Permite seleccionar un ticker y un rango de fechas para obtener datos actualizados.
-    - _Mostrar Resumen:_ Muestra los datos almacenados en formato tabular interactivo.
-    - _Graficar Ticker:_ Permite generar gráficos interactivos para analizar los datos financieros.
+    - Actualizar Datos: Permite seleccionar un ticker y un rango de fechas para obtener datos actualizados.
+    - Mostrar Resumen: Muestra los datos almacenados en formato tabular interactivo.
+    - Graficar Ticker: Permite generar gráficos interactivos para analizar los datos financieros.
 
 2.⁠ ⁠*Actualizar Datos:*
 
@@ -131,29 +123,33 @@ streamlit run src/main.py
 
 El gestor de base de datos utilizado es **SQLite**, que interactúa con el archivo `finanzas_P.db` donde se almacenan los datos financieros obtenidos desde la API.
 
+> La base de datos contiene algunos registros a fin de probar las funcionalidades de la aplicación. Sin embargo, el código contiene los metodos necesarios para crear todas las tablas.
+
 #### Tablas
 
-#### **financial_data_polygon**: almacena los datos financieros históricos de los tickers seleccionados por el usuario.
+**financial_data_polygon**: almacena los datos financieros históricos de los tickers seleccionados por el usuario.
 
-| Columna        | Tipo de Dato | Descripción                                                                             | Clave |
-| -------------- | ------------ | --------------------------------------------------------------------------------------- | ----- |
-| `id`           | `INTEGER`    | Identificador autoincremental único de cada registro. Es la clave primaria de la tabla. | PK    |
-| `ticker`       | `TEXT`       | Símbolo bursátil del activo (Ej. AAPL, TSLA). Referencia a la tabla `maestra_tickers`.  | FK    |
-| `date`         | `DATE`       | Fecha del registro, formato `YYYY-MM-DD`.                                               |       |
-| `volume`       | `REAL`       | Volumen de transacciones del activo en el día especificado.                             |       |
-| `vwap`         | `REAL`       | Promedio ponderado por volumen (VWAP) del día.                                          |       |
-| `open`         | `REAL`       | Precio de apertura del activo en el día especificado.                                   |       |
-| `close`        | `REAL`       | Precio de cierre del activo en el día especificado.                                     |       |
-| `high`         | `REAL`       | Precio máximo alcanzado por el activo en el día especificado.                           |       |
-| `low`          | `REAL`       | Precio mínimo alcanzado por el activo en el día especificado.                           |       |
-| `transactions` | `INTEGER`    | Número de transacciones realizadas en el día.                                           |       |
+| Columna        | Tipo de Dato | Descripción                                                                             |
+| -------------- | ------------ | --------------------------------------------------------------------------------------- |
+| `id`           | `INTEGER`    | Identificador autoincremental único de cada registro. Es la clave primaria de la tabla. |
+| `ticker`       | `TEXT`       | Símbolo bursátil del activo (Ej. AAPL, TSLA).                                           |
+| `date`         | `DATE`       | Fecha del registro, formato `YYYY-MM-DD`.                                               |
+| `volume`       | `REAL`       | Volumen de transacciones del activo en el día especificado.                             |
+| `vwap`         | `REAL`       | Promedio ponderado por volumen (VWAP) del día.                                          |
+| `open`         | `REAL`       | Precio de apertura del activo en el día especificado.                                   |
+| `close`        | `REAL`       | Precio de cierre del activo en el día especificado.                                     |
+| `high`         | `REAL`       | Precio máximo alcanzado por el activo en el día especificado.                           |
+| `low`          | `REAL`       | Precio mínimo alcanzado por el activo en el día especificado.                           |
+| `transactions` | `INTEGER`    | Número de transacciones realizadas en el día.                                           |
 
-#### **maestra_tickers**: tabla de referencia para validar los tickers.
+---
 
-| Columna           | Tipo de Dato | Descripción                                             | Clave |
-| ----------------- | ------------ | ------------------------------------------------------- | ----- |
-| `ticker`          | `TEXT`       | Símbolo bursátil único de la compañía (Ej. AAPL, TSLA). | PK    |
-| `nombre_compania` | `TEXT`       | Nombre completo de la compañía asociada al ticker.      |       |
+**maestra_tickers**: tabla de referencia para validar los tickers.
+
+| Columna           | Tipo de Dato | Descripción                                             |
+| ----------------- | ------------ | ------------------------------------------------------- |
+| `ticker`          | `TEXT`       | Símbolo bursátil único de la compañía (Ej. AAPL, TSLA). |
+| `nombre_compania` | `TEXT`       | Nombre completo de la compañía asociada al ticker.      |
 
 ---
 
