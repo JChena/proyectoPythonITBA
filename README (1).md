@@ -1,6 +1,6 @@
-# Data Shares
+# Data Shares (version_consola)
 
-Este proyecto es un sistema desarrollado en Python que facilita la gestión y análisis de datos financieros provenientes de una API externa.
+Esta versión del proyecto es un sistema desarrollado en Python que facilita la gestión y análisis de datos financieros provenientes de una API externa.
 
 ---
 
