@@ -52,8 +52,10 @@ El repositorio está alojado en GitHub y consta de dos ramas (version_consola y 
    > A fin de probar la aplicación, ésta tiene al momento, una API Key incorporada en el código que será reemplazada, luego de la correción del proyecto, por una variable en la que futuros usuarios puedan almacenar su API Key personal.
 - Sigue estos pasos para obtener la tuya:
   
-  1.1. **Regístrate en Polygon.io**: Ve a [Polygon.io](https://polygon.io/) y crea una cuenta.  
-  1.2. **Genera tu API Key**: Una vez que hayas iniciado sesión, dirígete a la sección de API Keys en tu cuenta y genera una nueva clave.  
+  1.1. **Regístrate en Polygon.io**: Ve a [Polygon.io](https://polygon.io/) y crea una cuenta.
+  
+  1.2. **Genera tu API Key**: Una vez que hayas iniciado sesión, dirígete a la sección de API Keys en tu cuenta y genera una nueva clave.
+  
   1.3. **Actualiza el código**: Sustituye la línea `API_KEY = "TU_API_KEY_AQUI"` en el archivo `menu.py` del proyecto.  
 
 ### 2. Instalación de Miniconda y Visual Studio Code
@@ -69,7 +71,7 @@ conda create --name <nombre_del_entorno>
 ```bash
 conda activate <nombre_del_entorno> 
 ```
-3.3. **Instala Python usando conda** 
+3.3. **Instala Python usando Miniconda** 
 
 ```bash
 conda install python==3.10.13
