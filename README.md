@@ -46,6 +46,7 @@ Proyecto/
 │
 └── static/ # Archivos estáticos
   └── logo3.png # Logo de la aplicación
+  └── data_shares_banner.png # banner readme
 ```
 
 ---
