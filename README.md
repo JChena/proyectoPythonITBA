@@ -56,7 +56,7 @@ El repositorio está alojado en GitHub y consta de dos ramas (version_consola y 
   
   1.2. **Genera tu API Key**: Una vez que hayas iniciado sesión, dirígete a la sección de API Keys en tu cuenta y genera una nueva clave.
   
-  1.3. **Actualiza el código**: Sustituye la línea `API_KEY = "TU_API_KEY_AQUI"` en el archivo `menu.py` del proyecto.  
+  1.3. **Actualiza el código**: Sustituye la línea `API_KEY = "TU_API_KEY_AQUI"` en el archivo `version_consola.py` del proyecto.  
 
 ### 2. Instalación de Miniconda y Visual Studio Code
 - Descarga e instala **Miniconda** desde [su sitio oficial](https://docs.conda.io/en/latest/miniconda.html).  
