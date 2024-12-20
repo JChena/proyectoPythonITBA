@@ -84,7 +84,7 @@ conda activate <nombre_del_entorno>
 ```bash
 conda install python==3.10.13
 ```
-3.5. **Instala las dependencias usando pip** (todas se encuentran en el archivo requirements.txt):
+3.7. **Instala las dependencias usando pip** (todas se encuentran en el archivo requirements.txt):
 ```bash
 pip install -r requirements.txt
 ```
