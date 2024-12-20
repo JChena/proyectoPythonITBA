@@ -70,10 +70,12 @@ El repositorio está alojado en GitHub y consta de dos ramas (version_consola y 
 git clone https://github.com/JChena/proyectoPythonITBA.git
 ```
 3.3. **Ubicarse en la carpeta proyectoPythonITBA**
+
 3.4. **Ubicarse en la rama version_consola** 
 ```bash
 git checkout version_consola
-```  
+```
+
 3.5. **Genera un entorno de trabajo** desde Miniconda ejecutando el siguiente comando en la terminal:  
 ```bash
 conda create --name <nombre_del_entorno> 
@@ -81,10 +83,12 @@ conda create --name <nombre_del_entorno>
 ```bash
 conda activate <nombre_del_entorno> 
 ```
+
 3.6. **Instala Python 3.10.13** 
 ```bash
 conda install python==3.10.13
 ```
+
 3.7. **Instala las dependencias usando pip** (todas se encuentran en el archivo requirements.txt):
 ```bash
 pip install -r requirements.txt
