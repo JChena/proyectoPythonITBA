@@ -63,11 +63,15 @@ El repositorio está alojado en GitHub y consta de dos ramas (version_consola y 
 - Descarga e instala **Visual Studio Code** desde [su sitio oficial](https://code.visualstudio.com/).
 
 ### 3. Configuración del Entorno de Trabajo
-3.1. **Crea una carpeta** en tu computadora donde se ubicará el proyecto y clonar el repositorio:
+3.1. **Crea una carpeta** en tu computadora donde se ubicará el proyecto y clonar el repositorio en la terminal de Miniconda:
 ```bash
 git clone https://github.com/JChena/proyectoPythonITBA.git
 ```
-3.2  **Abrir la terminal Miniconda** y ingresar a la carpeta recientemente creada. 
+3.2. **Ubicarse en la rama version_consola** 
+```bash
+git checkout version_consola
+```
+3.3  
 3.3. **Genera un entorno de trabajo** desde Miniconda ejecutando el siguiente comando en la terminal:  
 ```bash
 conda create --name <nombre_del_entorno> 
