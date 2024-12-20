@@ -64,6 +64,7 @@ El repositorio está alojado en GitHub y consta de dos ramas (version_consola y 
 
 ### 3. Configuración del Entorno de Trabajo
 3.1. **Abrir terminal Miniconda** y ubicarse en la carpeta de trabajo.
+
 3.2. **Clonar el repositorio** :
 ```bash
 git clone https://github.com/JChena/proyectoPythonITBA.git
