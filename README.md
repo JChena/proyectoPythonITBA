@@ -53,13 +53,36 @@ Proyecto/
 
 ### 3. Instalación y ejecución del proyecto
 
-#### 3.1⁠ ⁠Clonar el repositorio:
+#### 3.1⁠ ⁠Crear una carpeta para el proyecto.
+
+En la línea de comando, crear un directorio para alojar al proyecto y ubicarse en el mismo.
+
+```python
+mkdir <folder>
+cd <folder>
+```
+
+#### 3.2 Clonar el repositorio en el directorio creado:
 
 ```python
 git clone https://github.com/JChena/proyectoPythonITBA.git
 ```
 
-#### 3.2⁠ Crear un entorno virtual de trabajo para administrar las dependencias.
+#### 3.3 Ubicarse en el directorio proyectoPythonITBA del respositorio:
+
+```python
+cd proyectoPythonITBA
+```
+
+#### 3.4 Ubicarse en la rama 'version_streamlit' del respositorio:
+
+```python
+git checkout version_streamlit
+```
+
+> ⁠Asegurarse de que el archivo finanzas_P.db esté presente en la raíz del proyecto mediante el comando ls o dir.
+
+#### 3.5⁠ Crear un entorno virtual de trabajo para administrar las dependencias.
 
 > Recomendamos utilizar _Mini Conda_ para la instalación de Python, y _pip_ para la instalación del resto de los módulos.
 
@@ -72,19 +95,13 @@ conda install python==3.10.13
 pip install -r requirements.txt
 ```
 
-#### 3.3⁠ Ubicarse el la rama 'version_streamlit' del repositorio
-
-```python
-git checkout version_streamlit
-```
-
-> ⁠Asegurarse de que el archivo finanzas_P.db esté presente en la raíz del proyecto mediante el comando ls o dir.
-
-#### 3.4 Una vez instaladas las dependencias, la aplicación se lanza en un navegador mediante el siguiente comando:
+#### 3.6 Una vez instaladas las dependencias, la aplicación se lanza en un navegador mediante el siguiente comando:
 
 ```python
 streamlit run src/main.py
 ```
+
+#### 3.7 Para detener la ejecución del proyecto, presionar Ctrl + C en la línea de comando.
 
 ---
 
