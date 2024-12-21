@@ -1,7 +1,3 @@
-# -*- coding: utf-8 -*-
-# Commented out IPython magic to ensure Python compatibility.
-# Codigo con clases
-
 import datetime
 import requests
 import sqlite3
@@ -10,8 +6,6 @@ from prettytable import PrettyTable
 import matplotlib.dates as mdates
 import mplfinance as mpf
 import pandas as pd
-# %matplotlib inline
-
 
 class Validador:
     """Clase para validar datos de entrada"""
@@ -45,7 +39,7 @@ class Validador:
                 conexion.close()
 
                 if resultado == 0:
-                    print(f"Error: El ticker '{ticker}' no existe en la tabla maestra de tickers.")
+                    print(f"Error: El ticker '{ticker}' no es un código de ticker válido")
                     return None
                 else:
                     return ticker.strip()
@@ -99,7 +93,6 @@ class APIManager:
 
     @staticmethod
     def solicitar_datos(ticker, fecha_inicio, fecha_fin):
-        # Conexión a la base de datos
         conexion = sqlite3.connect("finanzas.db")
         cursor = conexion.cursor()
 
@@ -111,36 +104,34 @@ class APIManager:
         resultado = cursor.fetchone()
         conexion.close()
 
+        rango_faltante = []
+
         if resultado and resultado[0] and resultado[1]:
             # Rango existente en la base de datos
             fecha_guardada_inicio, fecha_guardada_fin = resultado
+            fecha_guardada_inicio = datetime.datetime.strptime(fecha_guardada_inicio, "%Y-%m-%d")
+            fecha_guardada_fin = datetime.datetime.strptime(fecha_guardada_fin, "%Y-%m-%d")
+        
+            #print(type(fecha_inicio)) #str
+            #print(type(fecha_guardada_inicio)) #datetime
 
-            # Ajustar las fechas para pedir solo los datos faltantes
+        # Si el rango solicitado está parcialmente fuera de los datos existentes
             if fecha_inicio < fecha_guardada_inicio:
-                rango_inicio = fecha_inicio
-                rango_fin = (datetime.datetime.strptime(fecha_guardada_inicio, "%Y-%m-%d") - datetime.timedelta(days=1)).strftime("%Y-%m-%d")
-            else:
-                rango_inicio, rango_fin = None, None
+                rango_faltante.append((fecha_inicio.strftime("%Y-%m-%d"),(fecha_guardada_inicio - datetime.timedelta(days=1)).strftime("%Y-%m-%d")))
 
             if fecha_fin > fecha_guardada_fin:
-                rango_inicio_extra = (datetime.datetime.strptime(fecha_guardada_fin, "%Y-%m-%d") + datetime.timedelta(days=1)).strftime("%Y-%m-%d")
-                rango_fin_extra = fecha_fin
-            else:
-                rango_inicio_extra, rango_fin_extra = None, None
-
-            # Llamar a la API para los rangos faltantes
-            if rango_inicio and rango_fin:
-                print(f"Pidiendo datos para el ticker '{ticker}' desde {rango_inicio} hasta {rango_fin}...")
-                APIManager.llamar_api_y_guardar(ticker, rango_inicio, rango_fin)
-
-            if rango_inicio_extra and rango_fin_extra:
-                print(f"Pidiendo datos para el ticker '{ticker}' desde {rango_inicio_extra} hasta {rango_fin_extra}...")
-                APIManager.llamar_api_y_guardar(ticker, rango_inicio_extra, rango_fin_extra)
-
+                rango_faltante.append(((fecha_guardada_fin + datetime.timedelta(days=1)).strftime("%Y-%m-%d"),
+                                      fecha_fin.strftime("%Y-%m-%d")))
         else:
             # No hay datos en la base de datos, pedir todo el rango solicitado
-            print(f"Pidiendo datos desde {fecha_inicio} hasta {fecha_fin}...")
-            APIManager.llamar_api_y_guardar(ticker, fecha_inicio, fecha_fin)
+            rango_faltante.append((fecha_inicio.strftime("%Y-%m-%d"), fecha_fin.strftime("%Y-%m-%d")))
+
+        # Solicitar datos para los rangos faltantes
+        for inicio, fin in rango_faltante:
+            if inicio <= fin:  # Evitar rangos inválidos o vacíos
+                print(f"Pidiendo datos para el ticker '{ticker}' desde {inicio} hasta {fin}...")
+                APIManager.llamar_api_y_guardar(ticker, inicio, fin)
+
 
     @staticmethod
     def llamar_api_y_guardar(ticker, fecha_inicio, fecha_fin):
@@ -264,9 +255,8 @@ class Menu:
             print("La fecha fin no puede ser anterior a la fecha de inicio.")
             return
 
-        datos = APIManager.solicitar_datos(ticker, fecha_inicio.strftime('%Y-%m-%d'), fecha_fin.strftime('%Y-%m-%d'))
-        self.db.guardar_datos(ticker, datos)
-
+        datos = APIManager.solicitar_datos(ticker, fecha_inicio, fecha_fin)
+       
     def mostrar_menu_visualizar_datos(self):
       while True:
           print("\n--- Submenú: Visualizar Datos ---")
