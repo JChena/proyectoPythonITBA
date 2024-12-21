@@ -39,7 +39,7 @@ class Validador:
                 conexion.close()
 
                 if resultado == 0:
-                    print(f"Error: El ticker '{ticker}' no es un código de ticker válido")
+                    print(f"Error: El ticker '{ticker}' no es un código de ticker válido.")
                     return None
                 else:
                     return ticker.strip()
